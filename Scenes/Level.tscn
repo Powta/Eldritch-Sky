@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b06h2kmynpuxu"]
+
+[ext_resource type="PackedScene" uid="uid://k6ce60ian1wq" path="res://Nodes/player.tscn" id="1_jqae2"]
+
+[node name="Level" type="Node2D"]
+texture_filter = 1
+
+[node name="Player" parent="." instance=ExtResource("1_jqae2")]
+position = Vector2(267, 168)
+minX = 21.0
+maxX = 556.0
+minY = 315.0
+maxY = 9.0

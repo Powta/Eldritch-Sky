@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://k6ce60ian1wq"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_ipmff"]
+[ext_resource type="Texture2D" uid="uid://c1gh8vvhom7dy" path="res://Assets/Plane_BlackBox.png" id="1_me6u4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32xg3"]
+size = Vector2(38, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qt7w1"]
+size = Vector2(8, 8)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 0
+script = ExtResource("1_ipmff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_32xg3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_me6u4")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qt7w1")
