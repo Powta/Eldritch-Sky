@@ -18,14 +18,28 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var directionX = Input.get_axis("ui_left", "ui_right")
 	var directionY = Input.get_axis("ui_up", "ui_down")
-	
 	direction= Vector2(directionX,directionY)
+	
+	print(direction)
 	if direction:
 		velocity= direction * SPEED
 	else:
 		velocity = Vector2(move_toward(velocity.x, 0, SPEED),move_toward(velocity.x, 0, SPEED))
+	
+	checkBoundaries(direction)
 
 	move_and_slide()
 
-func move(dir:float):
-	pass
+func checkBoundaries(dir:Vector2):
+	if position.x<=minX:
+		if dir.x<0:
+			velocity.x=0
+	if position.x>=maxX:
+		if dir.x>0:
+			velocity.x=0
+	if position.y>=minY:
+		if dir.y>0:
+			velocity.y=0
+	if position.y<=maxY:
+		if dir.y<0:
+			velocity.y=0
